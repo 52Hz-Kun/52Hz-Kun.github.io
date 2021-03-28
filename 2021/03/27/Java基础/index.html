@@ -28,7 +28,7 @@
 <meta property="og:description" content="Hello world12345public class HelloWorld&amp;#123;	public static void main(String[] args)&amp;#123;		System.out.println(&quot;hello world&quot;);	&amp;#125;&amp;#125;  tips  java的代码.java可以转换为字节码文件**.class**，来适用于各个系统。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-27T13:39:06.000Z">
-<meta property="article:modified_time" content="2021-03-28T09:25:37.202Z">
+<meta property="article:modified_time" content="2021-03-28T14:30:17.771Z">
 <meta property="article:author" content="KK">
 <meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-28 17:25:37" itemprop="dateModified" datetime="2021-03-28T17:25:37+08:00">2021-03-28</time>
+                <time title="修改时间：2021-03-28 22:30:17" itemprop="dateModified" datetime="2021-03-28T22:30:17+08:00">2021-03-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,7 +214,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>4k</span>
             </span>
 
         </div>
@@ -345,7 +345,31 @@
 
 
 
-<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p><strong>功能</strong>：就是同一个行为有不同的表现形式或形态的能力，通过接口，输入不同内容得到不同的功能的类</p>
+<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p><strong>功能</strong></p>
+<p>就是同一个行为有不同的表现形式或形态的能力，通过接口，输入不同内容得到不同的功能的类</p>
+<p><strong>优点</strong></p>
+<p><strong>（没太理解，跟直接创建方法有哪些优点？）</strong></p>
+<blockquote>
+<p><del>1、<strong>可替换性</strong>（substitutability）</del><br><del>2、<strong>可扩充性</strong>（extensibility）</del><br><del>3、接口性（interface-ability）</del><br><del>4、灵活性（flexibility）</del><br><del>5、简化性（simplicity）</del></p>
+</blockquote>
+<p><strong>接口（interface）</strong></p>
+<ul>
+<li>接口是一个抽象的类型，只提供方法的定义</li>
+<li>实现类是一个接口的具体实现，实现每个接口方法的功能</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Language接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Language</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">voice</span><span class="params">()</span></span>; <span class="comment">//只提供了一个方法名称，并没有给出具体方法怎么做</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Chinese实现类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chinese</span> <span class="keyword">implements</span> <span class="title">Language</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">voice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;你好，这里是中文台！&quot;</span>);<span class="comment">//Chinese类是Language接口的实现类，有实现方法的具体操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Custom类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Custom</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Language <span class="title">contact</span><span class="params">(<span class="keyword">int</span> number)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(number == <span class="number">86</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Chinese();</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> English();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Language language = <span class="keyword">new</span> Chinese(); <span class="comment">//Language可以新定义任意一个实现类</span></span><br><span class="line">        language.voice();</span><br><span class="line"></span><br><span class="line">        Custom demo = <span class="keyword">new</span> Custom();</span><br><span class="line">        Language language1 = demo.contact(<span class="number">55</span>); </span><br><span class="line">        language1.voice();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><ul>
+<li>ArrayList是Java内置的数据集合，用于存储多个数据</li>
+<li>ArrayList是数组的替代品，使用更简单，提供了更多的数据操作方法</li>
+<li>ArrayList几乎是每个项目中必备的类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ArrayLis元素可以不一样，但是是不正确使用！</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListSample</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;        </span><br><span class="line">        List&lt;String&gt; bookList = <span class="keyword">new</span> ArrayList&lt;String&gt;();<span class="comment">//&lt;泛型&gt;，用来规范列表中的数据类型</span></span><br><span class="line">        bookList.add(<span class="string">&quot;红楼梦&quot;</span>);<span class="comment">//添加元素</span></span><br><span class="line">        bookList.add(<span class="string">&quot;西游记&quot;</span>);</span><br><span class="line">        String name = bookList.get(<span class="number">1</span>);<span class="comment">//通过索引得到元素</span></span><br><span class="line">        <span class="keyword">int</span> size = bookList.size();<span class="comment">//获取list大小</span></span><br><span class="line">        bookList.remove(<span class="number">1</span>);<span class="comment">//通过索引删除元素</span></span><br><span class="line">        <span class="keyword">for</span>(String book : bookList)&#123; <span class="comment">//遍历list中元素的方法</span></span><br><span class="line">            System.out.println(book);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
     <div>
@@ -438,7 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello-world"><span class="nav-number">1.</span> <span class="nav-text">Hello world</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">类和对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%85-package"><span class="nav-number">6.</span> <span class="nav-text">包(package)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">7.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">8.</span> <span class="nav-text">面向对象三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">8.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">8.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">8.3.</span> <span class="nav-text">多态</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello-world"><span class="nav-number">1.</span> <span class="nav-text">Hello world</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">类和对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%85-package"><span class="nav-number">6.</span> <span class="nav-text">包(package)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">7.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">8.</span> <span class="nav-text">面向对象三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">8.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">8.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">8.3.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">9.</span> <span class="nav-text">ArrayList</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -505,7 +529,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">3k</span>
+    <span title="站点总字数">4k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
