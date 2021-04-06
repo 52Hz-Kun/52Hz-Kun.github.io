@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://wx3.sinaimg.cn/large/006GctFNly1gp7iet9t4uj31hb0rb76g.jpg">
 <meta property="og:image" content="https://wx4.sinaimg.cn/large/006GctFNly1gp7iet1g8lj30vk0frahy.jpg">
 <meta property="article:published_time" content="2021-03-27T13:39:06.000Z">
-<meta property="article:modified_time" content="2021-04-06T13:57:10.084Z">
+<meta property="article:modified_time" content="2021-04-06T15:34:33.321Z">
 <meta property="article:author" content="KK">
 <meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-06 21:57:10" itemprop="dateModified" datetime="2021-04-06T21:57:10+08:00">2021-04-06</time>
+                <time title="修改时间：2021-04-06 23:34:33" itemprop="dateModified" datetime="2021-04-06T23:34:33+08:00">2021-04-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,7 +218,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>9.2k</span>
+              <span>9.4k</span>
             </span>
 
         </div>
@@ -621,6 +621,30 @@
 
 
 
+<h4 id="package"><a href="#package" class="headerlink" title="package"></a>package</h4><p><strong>功能</strong></p>
+<ul>
+<li>把功能相似或相关的类放到一个包里（就是一个文件夹）</li>
+<li>使用package声明类或接口所属的包，声明在源文件的首行</li>
+<li>包也采用了树形目录的存储形式，每”.”一次，就代表一层文件目录</li>
+</ul>
+<p><strong>命名规则</strong></p>
+<ul>
+<li>采用”逆域名法”进行命名，用”.”分割，单词全部小写</li>
+<li>标准格式：域名后缀，组织机构名，项目名（模块名），包的职能</li>
+<li>同一个包下，不能命名同名的接口、类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">例如：com.imooc.weather.ui</span><br><span class="line">    </span><br><span class="line"><span class="keyword">package</span> com.imooc.demo.demo1; <span class="comment">//声明下面的类是属于哪个包</span></span><br><span class="line"><span class="keyword">import</span> com.imooc.demo.demo2.Demo2; <span class="comment">//导入别的包里面具体的类名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Demo2 demo2 = <span class="keyword">new</span> Demo2();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="import"><a href="#import" class="headerlink" title="import"></a>import</h4><ul>
+<li>声明在包的声明和类的声明之间</li>
+<li>如果需要导入多个结构，可以并列写出</li>
+<li>可以使用”xxx.*”的方式，导入xxx包下的所有结构</li>
+<li>如果使用的类或接口是java.lang包下定义的，则可以省略import结构</li>
+<li>如果在源文件中使用了不同包下的同名的类，则必须至少有一个类需要以全类名的方式显示</li>
+<li>import static：导入指定类或接口中的静态结构（属性、方法）</li>
+</ul>
 <h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><hr>
 <ul>
 <li>ArrayList是Java内置的数据集合，用于存储多个数据</li>
@@ -628,23 +652,6 @@
 <li>ArrayList几乎是每个项目中必备的类</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ArrayLis元素可以不一样，但是是不正确使用！</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListSample</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;        </span><br><span class="line">        List&lt;String&gt; bookList = <span class="keyword">new</span> ArrayList&lt;String&gt;();<span class="comment">//&lt;泛型&gt;，用来规范列表中的数据类型</span></span><br><span class="line">        bookList.add(<span class="string">&quot;红楼梦&quot;</span>);<span class="comment">//添加元素</span></span><br><span class="line">        bookList.add(<span class="string">&quot;西游记&quot;</span>);</span><br><span class="line">        String name = bookList.get(<span class="number">1</span>);<span class="comment">//通过索引得到元素</span></span><br><span class="line">        <span class="keyword">int</span> size = bookList.size();<span class="comment">//获取list大小</span></span><br><span class="line">        bookList.remove(<span class="number">1</span>);<span class="comment">//通过索引删除元素</span></span><br><span class="line">        <span class="keyword">for</span>(String book : bookList)&#123; <span class="comment">//遍历list中元素的方法</span></span><br><span class="line">            System.out.println(book);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="包-package"><a href="#包-package" class="headerlink" title="包(package)"></a>包(package)</h2><p><strong>功能</strong></p>
-<ul>
-<li>把功能相似或相关的类放到一个包里（就是一个文件夹）</li>
-<li>包也采用了树形目录的存储形式</li>
-<li>通过包可以限定类的访问权限</li>
-</ul>
-<p><strong>命名规则</strong></p>
-<ul>
-<li>采用”逆域名法”进行命名，用”.”分割，单词全部小写</li>
-<li>标准格式：域名后缀，组织机构名，项目名（模块名），包的职能</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">例如：com.imooc.weather.ui</span><br><span class="line">    </span><br><span class="line"><span class="keyword">package</span> com.imooc.demo.demo1; <span class="comment">//声明下面的类是属于哪个包</span></span><br><span class="line"><span class="keyword">import</span> com.imooc.demo.demo2.Demo2; <span class="comment">//导入别的包里面具体的类名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Demo2 demo2 = <span class="keyword">new</span> Demo2();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -741,7 +748,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-World"><span class="nav-number">1.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">5.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A6%E6%A0%87%E7%AD%BE%E7%9A%84break%E5%92%8Ccontinue"><span class="nav-number">6.</span> <span class="nav-text">带标签的break和continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">7.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">7.1.</span> <span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">7.2.</span> <span class="nav-text">二维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">7.3.</span> <span class="nav-text">Arrays工具类的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.1.</span> <span class="nav-text">Java类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">8.1.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">8.1.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">8.1.3.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84"><span class="nav-number">8.1.4.</span> <span class="nav-text">练习：对象数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.1.5.</span> <span class="nav-text">匿名对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">8.2.</span> <span class="nav-text">三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">8.2.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">8.2.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">8.2.3.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%80%A7%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">8.2.4.</span> <span class="nav-text">抽象性（可选）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">8.3.</span> <span class="nav-text">其他关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this"><span class="nav-number">8.3.1.</span> <span class="nav-text">this</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList"><span class="nav-number">9.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85-package"><span class="nav-number">10.</span> <span class="nav-text">包(package)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-World"><span class="nav-number">1.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">5.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A6%E6%A0%87%E7%AD%BE%E7%9A%84break%E5%92%8Ccontinue"><span class="nav-number">6.</span> <span class="nav-text">带标签的break和continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">7.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">7.1.</span> <span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">7.2.</span> <span class="nav-text">二维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">7.3.</span> <span class="nav-text">Arrays工具类的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.1.</span> <span class="nav-text">Java类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">8.1.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">8.1.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">8.1.3.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84"><span class="nav-number">8.1.4.</span> <span class="nav-text">练习：对象数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.1.5.</span> <span class="nav-text">匿名对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">8.2.</span> <span class="nav-text">三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">8.2.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">8.2.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">8.2.3.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%80%A7%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">8.2.4.</span> <span class="nav-text">抽象性（可选）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">8.3.</span> <span class="nav-text">其他关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this"><span class="nav-number">8.3.1.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#package"><span class="nav-number">8.3.2.</span> <span class="nav-text">package</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#import"><span class="nav-number">8.3.3.</span> <span class="nav-text">import</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList"><span class="nav-number">9.</span> <span class="nav-text">ArrayList</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -808,7 +815,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">15k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
