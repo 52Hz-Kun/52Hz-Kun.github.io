@@ -28,7 +28,7 @@
 <meta property="og:description" content="相关概念  DB：数据库，保存一组有组织的数据的容器 DBMS：数据库管理系统，用于管理DB中的数据 SQL：结构化查询语言，用于和DBMS通信的语言  登录 mysql [-h 主机名 -P 端口号] -u用户名 -p密码 MySQL常见命令  查看当前所有的数据库：show databases; 打开指定的库：use 库名; 查看当前库的所有表：show tables; 查看其它库的所有表：s">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-12T01:36:40.000Z">
-<meta property="article:modified_time" content="2021-05-16T05:36:54.048Z">
+<meta property="article:modified_time" content="2021-05-16T12:49:35.601Z">
 <meta property="article:author" content="KK">
 <meta name="twitter:card" content="summary">
 
@@ -195,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 13:36:54" itemprop="dateModified" datetime="2021-05-16T13:36:54+08:00">2021-05-16</time>
+                <time title="修改时间：2021-05-16 20:49:35" itemprop="dateModified" datetime="2021-05-16T20:49:35+08:00">2021-05-16</time>
               </span>
 
           <br>
@@ -204,7 +204,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.2k</span>
+              <span>5.8k</span>
             </span>
 
         </div>
@@ -378,6 +378,51 @@
 </ol>
 </li>
 </ol>
+<p><strong>子查询</strong></p>
+<p><strong>含义</strong></p>
+<p>出现在其他语句中的select语句，成为子查询或内查询</p>
+<p>外部的查询语句，成为主查询或外查询</p>
+<p><strong>分类</strong></p>
+<ul>
+<li><p>按结果集的行列数不同</p>
+<ul>
+<li>标量子查询（一行一列）</li>
+<li>列子查询（多行一列）</li>
+<li>行子查询（一行多列）</li>
+<li>表子查询（多行多列）</li>
+</ul>
+</li>
+<li><p>按子查询出现的位置</p>
+<ul>
+<li><p>select后面</p>
+<ul>
+<li>标量子查询</li>
+</ul>
+</li>
+<li><p>from后面</p>
+<ul>
+<li>表子查询</li>
+</ul>
+</li>
+<li><p>where或having后面</p>
+<ul>
+<li><p>标量子查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">子查询放在小括号里面</span><br><span class="line">子查询一般放在条件的右侧</span><br><span class="line">标量子查询，一般搭配着单行操作符使用&gt; &lt; &gt;&#x3D; &#x3D;&lt;&gt;</span><br><span class="line">子查询的执行优先于主查询执行，著查询的条件用到子查询的结果</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line"># 查询比Abel工资高的人的信息</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	salary &gt;(</span><br><span class="line">	SELECT</span><br><span class="line">		salary </span><br><span class="line">	FROM</span><br><span class="line">		employees </span><br><span class="line">WHERE</span><br><span class="line">	last_name &#x3D; &#39;Abel&#39;)</span><br></pre></td></tr></table></figure></li>
+<li><p>列子查询（多行子查询）</p>
+<p>in, any\some—&gt;min, all—&gt;max</p>
+</li>
+<li><p>行子查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 就是满足多个tiao</span><br><span class="line"># 查询员工编号最小并且工资最高的员工信息</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	( employee_id, salary )&#x3D;(</span><br><span class="line">	SELECT</span><br><span class="line">		MIN( employee_id ),</span><br><span class="line">		MAX( salary ) </span><br><span class="line">FROM</span><br><span class="line">	employees)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>exisits后面（相关子查询）</p>
+<ul>
+<li>表子查询</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
     <div>
@@ -533,7 +578,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">70k</span>
+    <span title="站点总字数">71k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
